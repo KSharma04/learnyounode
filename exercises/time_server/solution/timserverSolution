@@ -1,0 +1,10 @@
+var net = require('net');
+const port = process.argv[2];
+var strftime = require('strftime');
+const fmt = 'YYYY-MM-DD hh:mm';
+
+const server = net.createServer(function (socket){
+	console.log(socket.end(strftime('%F %H:%M', new Date()) + '\n'));
+});
+
+server.listen(port);
